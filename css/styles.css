@@ -83,6 +83,33 @@
     align-items: center;
 }
 
+.welcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 100px;
+    color: blue;
+    text-transform: uppercase;
+}
+
+.welcome h3{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    color: grey;
+}
+
+.welcome span{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    color: red;
+    margin-top: 10px;
+}
+
 /* .FormCard{
     width: 350px;
     height: 450px;
