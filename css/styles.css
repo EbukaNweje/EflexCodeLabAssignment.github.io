@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.maincontainer{
+    height: 100vh;
+    width: 100%;
+
+}
+
+.nav{
+    height: 70px;
+    width: 100%;
+    background: white;
+    box-shadow: -2px 0px 10px -1px rgba(0,0,0,0.51);
+    -webkit-box-shadow: -2px 0px 10px -1px rgba(0,0,0,0.51);
+    -moz-box-shadow: -2px 0px 10px -1px rgba(0,0,0,0.51);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Logo{
+    width: 150px;
+    height: 50px;
+    margin-left: 30px;
+    position: relative;
+}
+
+.Logo img{
+    position: absolute;
+    width: 100%;
+
+}
+
+.Menu{
+    display: none;
+}
+
+.Account{
+    width: 150px;
+    height: 50px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Account ul{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.Account ul li{
+    width: 100px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+
+.Account ul li a{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: grey;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 350ms;
+    transform: scale(1);
+}
+
+.Account ul li a:hover{
+    color: blue;
+    transform: scale(1.05);
+}
