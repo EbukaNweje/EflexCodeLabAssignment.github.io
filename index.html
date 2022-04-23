@@ -17,8 +17,8 @@
             <div class="Account"> 
                 <ul>
                     <div class="Close"><i class="fa-solid fa-xmark"></i></div>
-                    <li><a href="#"> Sign Up </a></li>
-                    <li><a href="#"> Log In </a></li>
+                    <li class="Sing"><a href="#"> Register </a></li>
+                    <li class="Log"><a href="#"> Log In </a></li>
                 </ul>
             </div>
         </div>
@@ -30,13 +30,47 @@
                 <span>Student project work</span>
                 
             </div>
-            <!-- <form action="" class="FormCard">
+            <div class="MyFormSign">
+                <form action="" class="FormCard">
+                        <span id="User">User created successfully </span>
+                    <div class="ImageUpload">
+                            <div class="Img"><img id="file-ip-1-preview"></div>
+                            <label for="image">Upload Profile</label>
+                            <input type="file" id="image" accept="image/jpg, image/png" hidden required>
+                        </div>
 
-            </form> -->
+                        <div class="FormInput">
+                            <input type="text" placeholder="Enter Your Full Name" id="name" required>
+                            <input type="email" placeholder="Enter Your Email Address" name="email" id="emailL" required>
+                            <input type="password" placeholder="Enter Your password" name="psw" id="pswL" required>
+                            <p id="Error">Your password must be up to 6 characters</p>
+                        </div>
+
+                        <button type="button" id="submitData" name="submitData">Register</button>
+                        <!-- <span class="orlog">or login</span> -->
+                        
+                </form>
+            </div>
+
+            <div class="MyFormLog">
+                <form action="" class="FormCardL">
+                    <img src="./image/Eflexcode.jpg" alt="">
+                    <div class="FormInput">
+                        <input type="email" placeholder="Enter Your Email Address" name="email" id="email" required>
+                        <input type="password" placeholder="Enter Your password" name="psw" id="psw" required>
+                    </div>
+
+                    <button type="button" id="submitDatas" name="LoData">Login</button>
+                        <span class="orlog">or Sign up</span>
+                </form>
+            </div>
         </div>
 
     </div>
+
+    </div>
     
-<script src="./js/App.js"></script>
+<script type="module" src="./js/App.js"></script>
+
 </body>
 </html>
