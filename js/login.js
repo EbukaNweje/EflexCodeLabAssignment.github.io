@@ -52,7 +52,7 @@ return passwordEnc.toString(CryptoJS.enc.Utf8);
 //--------------------------------------DECRIPT PROCESS-----------------------------------------------------//
 
 function login(user){
-let keeploggedIn =  document.getElementById('customSwitch1').chececked
+let keeploggedIn =  document.getElementById('customSwitch1').checked
 
 if(!keeploggedIn){
     sessionStorage.setItem('user', JSON.stringify(user))

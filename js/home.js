@@ -7,8 +7,8 @@
            let currentUser = null;
 
            function getUsername(){
-                let keeploggedIn = localStorage.getItem("keeploggedIn")
-                if(keeploggedIn == "yes"){
+                let keeploggedIns = localStorage.getItem("keeploggedIn")
+                if(keeploggedIns == "yes"){
                     currentUser = JSON.parse(localStorage.getItem('user'))
                 }
                 else{
