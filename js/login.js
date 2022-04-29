@@ -42,7 +42,7 @@ else{
 });
 }
 
-//--------------------------------------DECRIPT PROCESS-----------------------------------------------------//
+//--------------------------------------DECRIPT PROCESS-----------------------------------------------------/
 
 function decPass(dbpass){
 let passwordEnc = CryptoJS.AES.decrypt(dbpass, password.value)
@@ -53,7 +53,6 @@ return passwordEnc.toString(CryptoJS.enc.Utf8);
 
 function login(user){
 let keeploggedIn =  document.getElementById('customSwitch1').checked
-
 if(!keeploggedIn){
     sessionStorage.setItem('user', JSON.stringify(user))
     window.location="home.html"

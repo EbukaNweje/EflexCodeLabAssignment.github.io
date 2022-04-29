@@ -23,6 +23,7 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
   const username = document.getElementById('userInp')
   const password = document.getElementById('passInp')
   const submit = document.getElementById('sub_btn')
+  const Image = document.querySelector("#formFile")
 
 
 
@@ -77,7 +78,8 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
                     fullname: name.value,
                     email: emails.value,
                     usernames: username.value,
-                    passwords: encPass()
+                    passwords: encPass(),
+                    profile: Image.value,
                 })
                 .then(()=>{
                     alert("user added successfuly")
@@ -85,6 +87,7 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
                     emails.value = ""
                     username.value = ""
                     password.value = ""
+                    // preview.src = ""
                 })
                 .catch((error)=>{
                     const errorMessage = error.message;
@@ -106,6 +109,13 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
       submit.addEventListener('click', RegisterUser)
 
 
+      Image.onchange = (event) =>{
+        if(event.target.files.length > 0){
+          let src = URL.createObjectURL(event.target.files[0]);
+          let preview = document.getElementById("file-ip-1-preview");
+          preview.src = src;
+        }
+      }
 
 
 

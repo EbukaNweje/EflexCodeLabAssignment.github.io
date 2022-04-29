@@ -3,6 +3,7 @@
 
            let userlink = document.getElementById('userlink')
            let signoutlink = document.getElementById('signoutlink')
+           let profile =document.getElementById('profile')
            let wel = document.getElementById('Welcome')
            let currentUser = null;
 
@@ -22,6 +23,7 @@
            window.onload = function(){
             getUsername()
             if(currentUser == null){
+                profile.src = "./image/image.jpg"
                 userlink.innerText = "Create New Account"
                 userlink.classList.replace("nav-link", "btn");
                 userlink.classList.add("btn-primary")
@@ -34,6 +36,7 @@
 
             }
             else{
+                profile.src = currentUser.profile
                 userlink.innerText = currentUser.usernames;
                 wel.innerHTML ="Welcome " + currentUser.fullname;
                 userlink.classList.replace("btn", "nav-link")
@@ -45,4 +48,8 @@
                 signoutlink.classList.remove("btn-success");
                 signoutlink.href = "javascript:Signouts()";
             }
+            console.log(currentUser)
            }
+
+
+           
