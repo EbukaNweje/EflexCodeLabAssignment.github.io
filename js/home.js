@@ -1,4 +1,21 @@
-  //--------------------------------------Home PATH---------------------------------------------------------//
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+    const firebaseConfig = {
+    apiKey: "AIzaSyBQJPTdP8HLdpCHecjE7ohEdhmTnUt4szo",
+    authDomain: "eflexcodelabassignment.firebaseapp.com",
+    databaseURL: "https://eflexcodelabassignment-default-rtdb.firebaseio.com",
+    projectId: "eflexcodelabassignment",
+    storageBucket: "eflexcodelabassignment.appspot.com",
+    messagingSenderId: "412054884352",
+    appId: "1:412054884352:web:01b6146afefb3a18f888e5",
+    measurementId: "G-C0SFHQ24SJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig); 
+  const db = getDatabase()
+ 
+ //--------------------------------------Home PATH---------------------------------------------------------//
            //--------------------------------------THE REFRENECES-------------------------------------------------------//
 
            let userlink = document.getElementById('userlink')
@@ -17,7 +34,7 @@
                 }
            }
 
-
+        
            //--------------------------------------WINDOWS LOADS-------------------------------------------------------//
 
            window.onload = function(){
@@ -36,7 +53,17 @@
 
             }
             else{
-                profile.src = currentUser.profile
+                const dbRef = ref(db);
+                get(child(dbRef, "UserList/" + currentUser.usernames)).then((snapshot)=>{
+                    if(snapshot.exists()){
+                        const profileImage = (snapshot.val().profile);
+                        profile.src = profileImage
+                        console.log(profileImage)
+                    }
+                    else{
+                        console.log("not seeing")
+                    }
+                    });
                 userlink.innerText = currentUser.usernames;
                 wel.innerHTML ="Welcome " + currentUser.fullname;
                 userlink.classList.replace("btn", "nav-link")
