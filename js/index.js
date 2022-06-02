@@ -66,35 +66,37 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
         if(!validation()){
             return;
         }
-        const dbRef = ref(db);
+        Imageshow()
+        // const dbRef = ref(db);
 
-        get(child(dbRef, "UserList/" + username.value)).then((snapshot)=>{
-            if(snapshot.exists()){
-                alert("Account Already Exist!")
-            }
-            else{
-                set(ref(db, "UserList/" + username.value),
-                {
-                    fullname: name.value,
-                    email: emails.value,
-                    usernames: username.value,
-                    passwords: encPass(),
-                    profile: Image.value,
-                })
-                .then(()=>{
-                    alert("user added successfuly")
-                    name.value = ""
-                    emails.value = ""
-                    username.value = ""
-                    password.value = ""
-                    // preview.src = ""
-                })
-                .catch((error)=>{
-                    const errorMessage = error.message;
-                    alert(errorMessage)
-                })
-            }
-        });
+        // get(child(dbRef, "UserList/" + username.value)).then((snapshot)=>{
+        //     if(snapshot.exists()){
+        //         alert("Account Already Exist!")
+        //     }
+        //     else{
+        //         set(ref(db, "UserList/" + username.value),
+        //         {
+        //             fullname: name.value,
+        //             email: emails.value,
+        //             usernames: username.value,
+        //             passwords: encPass(),
+        //             // profile: Imageshow(),
+        //         })
+        //         .then(()=>{
+        //             alert("user added successfuly")
+        //             name.value = ""
+        //             emails.value = ""
+        //             username.value = ""
+        //             password.value = ""
+        //             // preview.src = ""
+        //         })
+        //         .catch((error)=>{
+        //             const errorMessage = error.message;
+        //             alert(errorMessage)
+        //         })
+        //     }
+        // });
+
       }
 
             //--------------------------------------ENCRIPTTION---------------------------------------------------//
@@ -116,6 +118,48 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
           preview.src = src;
         }
       }
+
+      document.querySelector("#formFile").addEventListener("change", Imageshow)
+      function Imageshow(){
+        const dbRef = ref(db);
+        const reader = new FileReader();
+        reader.addEventListener("load", ()=>{
+            get(child(dbRef, "UserList/" + username.value)).then((snapshot)=>{
+                if(snapshot.exists()){
+                    alert("Account Already Exist!")
+                }
+                else{
+                    set(ref(db, "UserList/" + username.value),
+                    {
+                        fullname: name.value,
+                        email: emails.value,
+                        usernames: username.value,
+                        passwords: encPass(),
+                        profile: reader.result,
+                    })
+                    .then(()=>{
+                        alert("user added successfuly")
+                        name.value = ""
+                        emails.value = ""
+                        username.value = ""
+                        password.value = ""
+                        // preview.src = ""
+                    })
+                    .catch((error)=>{
+                        const errorMessage = error.message;
+                        alert(errorMessage)
+                    })
+                }
+            });
+    
+        })
+
+        reader.readAsDataURL(this.files[0]);
+
+      }
+      
+
+
 
 
 

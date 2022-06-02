@@ -16,7 +16,7 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
   const db = getDatabase()
  
  //--------------------------------------Home PATH---------------------------------------------------------//
-           //--------------------------------------THE REFRENECES-------------------------------------------------------//
+           //--------------------------------------THE REFRENECES-------------------------------------------//
 
            let userlink = document.getElementById('userlink')
            let signoutlink = document.getElementById('signoutlink')
@@ -35,7 +35,7 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
            }
 
         
-           //--------------------------------------WINDOWS LOADS-------------------------------------------------------//
+           //--------------------------------------WINDOWS LOADS---------------------------------------------//
 
            window.onload = function(){
             getUsername()
@@ -53,17 +53,7 @@ import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebas
 
             }
             else{
-                const dbRef = ref(db);
-                get(child(dbRef, "UserList/" + currentUser.usernames)).then((snapshot)=>{
-                    if(snapshot.exists()){
-                        const profileImage = (snapshot.val().profile);
-                        profile.src = profileImage
-                        console.log(profileImage)
-                    }
-                    else{
-                        console.log("not seeing")
-                    }
-                    });
+                profile.src = currentUser.profile
                 userlink.innerText = currentUser.usernames;
                 wel.innerHTML ="Welcome " + currentUser.fullname;
                 userlink.classList.replace("btn", "nav-link")

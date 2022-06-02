@@ -39,3 +39,24 @@
     height: 100%;
     border-radius: 50%;
 }
+
+.Welcome{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 20px 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.Texts{
+    width: 100%;
+    padding: 10px;
+}
+
+
+.btnC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
